@@ -1,0 +1,359 @@
+//type global
+.heading {
+	@include heading;
+}
+p {
+	line-height: 25px;
+}
+//links
+ul {
+	margin: initial;
+	list-style: none;
+	li {
+		list-style: none;
+		a {
+			text-decoration: none;
+			color: $black;
+		}
+		a:visited {
+			color: $black;
+		}
+		a:hover {
+			color: $orange;
+		}
+	}
+}
+
+// logo
+.logo {
+	display: flex;
+	align-items: center;
+	span {
+		padding: 1rem;
+		font-weight: bold;
+		font-size: 25px;
+	}
+	img {
+		height: 10%;
+	}
+	&__text {
+		display: flex;
+		align-items: center;
+	}
+}
+//layout global 
+
+.container {
+	width: 95%;
+	margin: 0 auto;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	@include device1020 {
+		width: 80%;
+	}
+	&.container-footer {
+		padding-top: 6rem;
+		text-align: center;
+		@include device1020 {
+			text-align: initial;
+		}
+	}
+}
+
+.rowreverse {
+	flex-direction: row-reverse;
+}
+
+.copymargin {
+	margin: initial;
+	@include device1020 {
+		margin: 0 0 1.5em 3em;
+	}
+}
+
+//Header 
+
+.hero {
+	display: block;
+	@include device768 {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__text {
+		width: 100%;
+		@include device768 {
+			width: 50%;
+		}
+		@include device1600 {
+			width: 30%;
+		}
+	}
+	&__image {
+		width: 100%;
+		display: initial;
+		@include device768 {
+			width: 50%;
+		}
+		@include device1600 {
+			width: 40%;
+			display: flex;
+		}
+		img {
+			width: 60%;
+			display: block;
+			padding-top: 1rem;
+			@include device768 {
+				padding-top: initial;
+				width: initial;
+				display: flex;
+			}
+		}
+	}
+	&__title {
+		font-size: 20px;
+		@include device1020 {
+			font-size: 44px;
+		}
+	}
+	&__copy {
+		padding-top: 1rem;
+		padding-bottom: 2rem;
+		font-size: 18px;
+	}
+	&__cta {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 80%;
+		@include device480 {
+			width: 70%;
+		}
+		@include device768 {
+			width: 90%;
+		}
+		@include device1020 {
+			width: 80%;
+		}
+	}
+	&__video {
+		display: flex;
+		color: $orange;
+		text-decoration: underline;
+		cursor: pointer;
+		img {
+			padding-right: 5px;
+			height: 17px;
+			align-self: center;
+		}
+	}
+}
+
+// Feature
+
+.feature {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 4rem;
+	&__section {
+		padding: 1rem 0;
+		@include device1020 {
+			width: 25%;
+			padding: 2rem;
+		}
+	}
+	&__heading {
+		font-size: $mobile-heading;
+		width: 100%;
+		@include device1020 {
+			font-size: 36px;
+			text-align: center;
+			width: 50%;
+			align-self: center;
+		}
+	}
+	&__title {
+		padding: 1rem 0;
+		font-weight: bold;
+	}
+	&__section-container {
+		display: flex;
+		flex-wrap: wrap;
+		padding-bottom: 2rem;
+		@include device1020 {
+		padding: 2rem 0;
+		}
+	}
+	&__bg {
+		@include background;
+	}
+	button {
+		width: fit-content;
+		align-self: initial;
+		@include device1020 {
+			align-self: center;
+		}
+	}
+}
+
+//Split layout - for layouts that have an equal proportion of text and copy 
+
+.splitlayout {
+	display: block;
+	@include device1020 {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+	}
+	//overwrite wordpress default styles
+	p {
+		margin: 0.5rem 0;
+	}
+	h3 {
+		margin-top: 0.5rem;
+		margin-bottom: 2rem;
+	}
+	&__text {
+		width: 100%;
+		@include device1020 {
+			width: 50%;
+			align-self: center;}
+	}
+	&__textwrapper {
+		width: 100%;
+		ul {
+			margin: initial;
+			margin-left: -45px;
+			li {
+				display: flex;
+				margin-left: 3px;
+				align-items: center;
+				span {
+					padding-left: 1rem;
+				}
+			}
+		}
+		@include device1020 {
+			width: 90%;
+		}
+	}
+	&__image {
+		@include mobileimg;
+		@include device768 {
+			width: 50%;
+			height: fit-content;
+			padding-top: initial;
+			display: flex;
+			justify-content: flex-start;
+			align-self: center;
+		}
+		@include device1020 {
+			justify-content: center;
+			align-content: center;
+		}
+	}
+}
+
+//Need a super hero 
+
+.superhero {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: initial;
+	@include device1020 {
+		height: 835px; // Going with what the design's height is
+		//As it's absolute positioning I feel rem is most appropiate, as elements move around too much when its VH
+	}
+	&__bg {
+		@include background;
+		background-position-y: 0;
+	}
+	&__textwrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		position: relative;
+	}
+	&__heading {
+		@include heading;
+	}
+	&__subheading {
+		padding-bottom: 2rem;
+		width: 70%;
+		text-align: center;
+	}
+	&__imagewrapper {
+		text-align: center;
+	}
+	img {
+		position: initial;
+		padding: 1.5rem 0;
+		@include device1020 {
+			position: absolute;
+			padding: initial;
+		}
+	}
+	&__image1 {
+		bottom: 100%;
+		right: 0%;
+	}
+	&__image2 {
+		top: 90%;
+    	right: -10%;
+	}
+	&__image3 {
+		top: 142%;
+    	left: 29%;
+	}
+	&__image4 {
+		left: -12%;
+    	top: 97%;
+	}
+	&__image5 {
+		left: -8%;
+    	top: -38%;
+	}
+}
+
+//Marketing Strategies
+
+.marketingstrat {
+	&__heading {
+		@include heading;
+	}
+	&__subheading {
+		margin-bottom: 2.5rem;;
+	}
+}
+
+//aligns carousel item to center of container on smaller devices
+
+.slider__section1,
+.slider__section2,
+.slider__section3 {
+	text-align: center;
+	@include device1020 {
+		text-align: initial;
+	}
+}
+
+//Footer
+
+footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	@include device1020 {
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	}
+	ul {
+		padding-left: 0;
+	}
+	.w3-input {
+		width: -webkit-fill-available;
+		margin: 0.5rem 0 2rem 0;
+	}
+}

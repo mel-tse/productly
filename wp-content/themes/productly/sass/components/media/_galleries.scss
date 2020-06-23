@@ -1,0 +1,54 @@
+.gallery {
+	margin-bottom: 1.5em;
+	display: grid;
+	grid-gap: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}
+
+// Loops to enumerate the classes for gallery columns.
+@for $i from 2 through 9 {
+
+	.gallery-columns-#{$i} {
+		grid-template-columns: repeat($i, 1fr);
+	}
+}
+
+.gallery-caption {
+	display: block;
+}
+
+//Carousel slider 
+
+
+.carousel-cell {
+  width: 100%;
+  @include device1020 {
+  	width: 28%;
+  }
+  margin-right: 10px;
+  margin-left: 10px;
+  height: 300px;
+  span {
+	  font-weight: bold;
+  }
+  p {
+	  line-height: 0;
+	  margin-bottom: 0;
+  }
+  h4 {
+	  font-size: 20px;
+  }
+}
+
+.carousel-cell.is-selected {
+	h4 {
+		color: $orange;
+	}
+  }
+
+

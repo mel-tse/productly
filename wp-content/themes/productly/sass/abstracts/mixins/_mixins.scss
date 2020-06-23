@@ -1,0 +1,72 @@
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
+
+
+//media queries 
+// Media Queries
+
+@mixin device480 {
+	@media (min-width: #{$tablet-width}) {
+	  @content;
+	}
+  }
+  
+  @mixin device768 {
+	@media (min-width: #{$desktop-width}) {
+	  @content;
+	}
+  }
+  
+  @mixin device1020 {
+	@media (min-width: #{$standard-width}) {
+	  @content;
+	}
+  }
+  
+  @mixin device1200 {
+	@media (min-width: #{$large-width}) {
+	  @content;
+	}
+  }
+  
+  @mixin device1600 {
+	@media (min-width: #{$full-width}) {
+	  @content;
+	}
+  }
+
+  //background 
+
+  @mixin background {
+	background-repeat: no-repeat;
+	width: 100%;
+	background-position: center;
+	background-size: cover;
+  }
+
+  //type 
+
+  @mixin heading {
+	  font-size: $mobile-heading;
+	  font-weight: bold;
+	  @include device1020 {
+		  font-size: $desktop-heading;
+	  }
+  }
+
+  //mobile image width
+
+  @mixin mobileimg {
+	width: 60%;
+    display: block;
+    padding-top: 1rem;
+  }
